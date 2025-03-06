@@ -1,5 +1,5 @@
 # Hash table tutorial
-**clang *.c -o set && ./set**
+```clang *.c -o set && ./set```
 
 <table><tr><td>
 0: 'abcd' 'abcdefh_'<br>
