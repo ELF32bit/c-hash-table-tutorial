@@ -12,8 +12,8 @@ List* list_new() {
 void list_push(List* list, void* data, size_t data_size) {
 	ListNode* new_list_node = malloc(sizeof(ListNode));
 	if (new_list_node == NULL) { return; }
-	new_list_node->data_size = data_size;
 	new_list_node->data = data;
+	new_list_node->data_size = data_size;
 	new_list_node->next = NULL;
 
 	if (list->head == NULL) { list->head = new_list_node; }
