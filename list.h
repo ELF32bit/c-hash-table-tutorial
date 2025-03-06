@@ -17,7 +17,7 @@ typedef struct List {
 
 List* list_new();
 void list_push(List* list, void* data, size_t data_size);
-bool list_find(const List* list, const void* data, const size_t data_size);
+bool list_find(const List* list, const void* data, size_t data_size);
 void list_free(List* list);
 
 #endif

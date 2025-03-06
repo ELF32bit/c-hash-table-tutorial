@@ -9,7 +9,7 @@ typedef struct Set {
 	size_t hash_table_size;
 } Set;
 
-Set* set_new(const size_t hash_table_size);
+Set* set_new(size_t hash_table_size);
 void set_add(Set* set, const char* string);
 bool set_find(const Set* set, const char* string);
 void set_print(const Set* set);

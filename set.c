@@ -8,7 +8,7 @@ static size_t hash(const char* string, const size_t hash_table_size) {
 	return strlen(string) % hash_table_size;
 }
 
-Set* set_new(const size_t hash_table_size) {
+Set* set_new(size_t hash_table_size) {
 	Set* set = malloc(sizeof(set));
 	if (set == NULL) { return NULL; }
 	set->hash_table = malloc(hash_table_size * sizeof(List*));

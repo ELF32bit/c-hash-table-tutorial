@@ -26,7 +26,7 @@ void list_push(List* list, void* data, size_t data_size) {
 	}
 }
 
-bool list_find(const List* list, const void* data, const size_t data_size) {
+bool list_find(const List* list, const void* data, size_t data_size) {
 	ListNode* list_node = list->head;
 	while (list_node != NULL) {
 		if (data_size == list_node->data_size) {
