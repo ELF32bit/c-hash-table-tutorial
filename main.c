@@ -18,22 +18,30 @@ int main(int argc, char **argv) {
 	set_add(set, strdup("abcdefg"));
 	set_add(set, strdup("abcdefgh"));
 
-	/* inserting same element multiple times */
+	/* inserting same string multiple times */
+	/* only str1 will be added into set() */
 	char* str1 = strdup("I");
+	char* str2 = strdup("I");
 	set_add(set, str1);
 	set_add(set, str1);
-	set_add(set, str1);
+	set_add(set, str2);
+	set_add(set, str2);
 
+	/* printing set() */
 	set_print(set);
 
 	/* stack allocated strings are compared with heap allocated strings! */
 	if (set_find(set, "a")) { printf("%s found!\n", "a"); }
 	if (!set_find(set, "cba")) { printf("%s not found!\n", "cba"); }
 
-	char* str2 = strdup("II");
-	if (set_find(set, str1)) { printf("%s found!\n", str1); }
-	if (!set_find(set, str2)) { printf("%s not found!\n", str2); }
+	/* searching for the string contained in set() by value only */
+	if (set_find(set, str2)) { printf("%s found!\n", str2); }
 	free(str2);
+
+	/* searching for another string not contained in set() */
+	char* str3 = strdup("II");
+	if (!set_find(set, str3)) { printf("%s not found!\n", str3); }
+	free(str3);
 
 	set_free(set);
 	return EXIT_SUCCESS;
