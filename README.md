@@ -2,10 +2,10 @@
 ```clang *.c -o set && ./set```
 
 <table><tr><td>
-0: 'abcd' 'abcdefh_'<br>
+0: 'abcd' 'abcdefhI'<br>
 1: 'a' 'abcde'<br>
 2: 'ab' 'abcdef'<br>
 3: 'abc' 'abcdefg' 'abcdefh'<br>
-abcdefh_ found!<br>
-abcdefh___ not found!<br>
+abcdefhI found!<br>
+abcdefhIII not found!<br>
 </table></tr></td>

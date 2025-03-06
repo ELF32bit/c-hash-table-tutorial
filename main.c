@@ -16,8 +16,10 @@ int main(int argc, char **argv) {
 	set_add(set, strdup("abcdefg"));
 	set_add(set, strdup("abcdefh"));
 
-	char* str1 = strdup("abcdefh_");
-	char* str2 = strdup("abcdefh___");
+	char* str1 = strdup("abcdefhI");
+	char* str2 = strdup("abcdefhIII");
+	set_add(set, str1);
+	set_add(set, str1);
 	set_add(set, str1);
 
 	set_print(set);
