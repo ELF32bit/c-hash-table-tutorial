@@ -1,6 +1,6 @@
 #include "list.h"
 
-#include <stdlib.h>
+#include <string.h>
 
 List* list_new() {
 	List* list = malloc(sizeof(list));
@@ -9,9 +9,10 @@ List* list_new() {
 	return list;
 }
 
-void list_push(List* list, void* data) {
+void list_push(List* list, void* data, size_t data_size) {
 	ListNode* new_list_node = malloc(sizeof(ListNode));
 	if (new_list_node == NULL) { return; }
+	new_list_node->data_size = data_size;
 	new_list_node->data = data;
 	new_list_node->next = NULL;
 
@@ -25,10 +26,12 @@ void list_push(List* list, void* data) {
 	}
 }
 
-bool list_find(const List* list, void* data) {
+bool list_find(const List* list, const void* data) {
 	ListNode* list_node = list->head;
-	while (list_node != NULL){
-		if (list_node->data == data) { return 1; }
+	while (list_node != NULL) {
+		if (memcmp(list_node->data, data, list_node->data_size) == 0) {
+			return 1;
+		}
 		list_node = list_node->next;
 	}
 	return 0;

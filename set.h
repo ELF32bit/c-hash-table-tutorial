@@ -5,8 +5,8 @@
 #include <stdio.h>
 
 typedef struct Set {
-	size_t hash_table_size;
 	List** hash_table;
+	size_t hash_table_size;
 } Set;
 
 Set* set_new(const size_t hash_table_size);
