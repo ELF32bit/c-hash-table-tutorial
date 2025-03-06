@@ -19,7 +19,7 @@ Set* set_new(size_t hash_table_size) {
 		set->hash_table[index1] = list_new();
 		if (set->hash_table[index1] == NULL) {
 			for (size_t index2 = 0; index2 < index1; index2++) {
-				free(set->hash_table[index2]);
+				list_free(set->hash_table[index2]);
 			}
 			free(set->hash_table);
 			free(set);
