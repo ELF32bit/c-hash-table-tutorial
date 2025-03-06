@@ -33,14 +33,17 @@ Set* set_new(const size_t hash_table_size) {
 void set_add(Set* set, const char* string) {
 	size_t string_hash = hash(string, set->hash_table_size);
 	List* bucket = set->hash_table[string_hash];
-	if (list_find(bucket, (void*)string)) { return; }
-	list_push(bucket, (void*)string, strlen(string) + 1);
+	if (list_find(bucket, (void*)string, strlen(string) + 1)) { return; }
+
+	char* owned_string = strdup(string);
+	if (owned_string == NULL) { return; }
+	list_push(bucket, (void*)owned_string, strlen(owned_string) + 1);
 }
 
 bool set_find(const Set* set, const char* string) {
 	size_t string_hash = hash(string, set->hash_table_size);
 	List* bucket = set->hash_table[string_hash];
-	return list_find(bucket, (void*)string);
+	return list_find(bucket, (void*)string, strlen(string) + 1);
 }
 
 void set_print(const Set* set) {
