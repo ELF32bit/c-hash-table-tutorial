@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 
-static size_t hash(const char* string, const size_t hash_table_size) {
+static size_t hash(const char* string, size_t hash_table_size) {
 	return strlen(string) % hash_table_size;
 }
 
