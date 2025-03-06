@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 typedef struct Set {
-	List** hash_table;
+	List** hash_table; // array of lists
 	size_t hash_table_size;
 } Set;
 
