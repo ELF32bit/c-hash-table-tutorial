@@ -50,14 +50,15 @@ bool set_find(const Set* set, const char* string) {
 
 void set_print(const Set* set) {
 	for (size_t index = 0; index < set->hash_table_size; index++) {
-		printf("%zu:", index);
+		printf("%zu: [ ", index);
 
 		ListNode* list_node = (set->hash_table[index])->head;
 		while (list_node != NULL) {
-			printf(" '%s'", (char*)list_node->data);
+			if (list_node->next != NULL) { printf("'%s', ", (char*)list_node->data); }
+			else { printf("'%s'", (char*)list_node->data); }
 			list_node = list_node->next;
 		}
-		printf("\n");
+		printf(" ]\n");
 	}
 }
 

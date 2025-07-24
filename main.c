@@ -12,13 +12,13 @@ int main(int argc, char **argv) {
 	set_add(set, "abc");
 	set_add(set, "abcd");
 
-	set_add(set, "abcde");
-	set_add(set, "abcdef");
-	set_add(set, "abcdefg");
-	set_add(set, "abcdefgh");
+	set_add(set, "1");
+	set_add(set, "12");
+	set_add(set, "123");
+	set_add(set, "");
 
 	/* inserting same string multiple times */
-	char* str1 = "I"; char* str2 = "I";
+	char* str1 = "while"; char* str2 = "while";
 	set_add(set, str1);
 	set_add(set, str1);
 	set_add(set, str2);
@@ -28,8 +28,8 @@ int main(int argc, char **argv) {
 	set_print(set);
 
 	/* stack allocated strings are compared with heap allocated strings! */
-	if (set_find(set, "abc")) { printf("%s found!\n", "abc"); }
-	if (!set_find(set, "cba")) { printf("%s not found!\n", "cba"); }
+	if (set_find(set, "abc")) { printf("'%s' found!\n", "abc"); }
+	if (!set_find(set, "cba")) { printf("'%s' not found!\n", "cba"); }
 
 	set_free(set);
 	return EXIT_SUCCESS;
